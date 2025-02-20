@@ -1,6 +1,6 @@
 package com.ibm.training.basics;
 
-public class ChemicalElement {
+public class ChemicalElement implements Comparable<ChemicalElement> {
 
 	private int atomicNumber;
 	private String symbol, name;
@@ -62,6 +62,22 @@ public class ChemicalElement {
 		return name;
 	}
 
+	@Override
+	public String toString() {
+		return "ChemicalElement [atomicNumber=" + atomicNumber + ", symbol=" + symbol + ", name=" + name + "]";
+	}
+
+	@Override
+	public int compareTo(ChemicalElement other) {
+		//System.out.println(this.symbol + ".compareTo("+other.symbol+")");
+		
+		/*
+		 * if(this.atomicNumber > other.atomicNumber) { return 1; }else
+		 * if(other.atomicNumber > this.atomicNumber) { return -1; }else { return 0; }
+		 */
+		
+		return (this.atomicNumber - other.atomicNumber);
+	}
 	
 	
 }
