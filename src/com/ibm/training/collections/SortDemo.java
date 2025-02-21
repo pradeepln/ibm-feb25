@@ -3,6 +3,7 @@ package com.ibm.training.collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.ibm.training.basics.ChemicalElement;
@@ -15,7 +16,23 @@ public class SortDemo {
 		
 		//sortListOfUserDefinedObj();
 		
-		sortListOfStringUsingLength();
+		//sortListOfStringUsingLength();
+	}
+	
+	private static void sortListOfStringUsingLengthAndAnon() {
+		String[] words = {"this","is","a","bunch","of","strange","words","like","zebra","abyss","etc"};
+		List<String> wordList = Arrays.asList(words);
+		
+		System.out.println(wordList);
+		
+		Collections.sort(wordList, new Comparator<String>() {
+			@Override
+			public int compare(String s1,String s2) {
+				return s1.length() - s2.length();
+			}
+		});
+		
+		System.out.println(wordList);
 	}
 
 	private static void sortListOfStringUsingLength() {
